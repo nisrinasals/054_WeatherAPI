@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            CUACA
+        </title>
+    </head>
+    <body>
+        CUACA: <p id="lokasi"></p>
+        <hr>
+        <div id="tampilan"></div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+        <script>
+            const kota = "Gamping";
+            const urlapi = "http://api.weatherapi.com/v1/current.json?key=d5ea38ed0f1146b093012831250610&q=" + kota + "&aqi=no"
+            $.ajax({
+                url : urlapi,
+                method : 'GET',
+                success : function(data){
+                    console.log(data);
+                    const v = document.getElementById('tampilan');
+                    let suhu = data.current.temp_c;
+                    let lokasi = data.location;
+                    v.innerHTML = suhu;
+                    const l = document.getElementById('lokasi');
+                    l.innerHTML = data.location.name;
+                },
+                fail : function(error){
+                    console.log(error);
+                }
+
+            });
+        </script>
+    </body>
+</html>
