@@ -31,7 +31,27 @@
 
         function cariCuaca() {
 
+            const kota = document.getElementById('input-lokasi').value;
             const apiUrl = `http://api.weatherapi.com/v1/current.json?key=d5ea38ed0f1146b093012831250610&q=${kota}&aqi=no`;
+            $.ajax({
+                url: apiUrl,
+                method: 'GET',
+                success: function(data) {
+
+                    console.log(data); 
+                    document.getElementById('info-negara').textContent = data.location.country;
+                    document.getElementById('info-provinsi').textContent = data.location.region;
+                    document.getElementById('info-nama-lokasi').textContent = data.location.name;
+                    document.getElementById('info-suhu').textContent = `${data.current.temp_c}°C`;
+                    document.getElementById('info-kelembaban').textContent = `${data.current.humidity}%`;
+                    document.getElementById('info-lat').textContent = data.location.lat;
+                    document.getElementById('info-lon').textContent = data.location.lon;
+                },
+                error: function(error) {
+                    console.error('Error:', error);
+                    alert('Lokasi tidak ditemukan atau terjadi kesalahan. Silakan coba lagi.');
+                }
+            });
         }
 
         document.getElementById('input-lokasi').addEventListener('keyup', function(event) {
