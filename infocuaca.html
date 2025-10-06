@@ -6,6 +6,93 @@
     <title>Cuaca</title>
 </head>
 <body>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: #e9ecef; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; 
+            margin: 0;
+            padding: 20px; 
+            box-sizing: border-box; 
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px; 
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); 
+            width: 100%;
+            max-width: 2000px; 
+            box-sizing: border-box;
+        }
+        h1 {
+            text-align: center;
+            color: #212529; 
+            margin-bottom: 20px;
+            font-size: 2.2em; 
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0));
+            margin: 25px 0; 
+        }
+        .input-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px; 
+            justify-content: center; 
+        }
+        #input-lokasi {
+            flex-grow: 1;
+            padding: 12px 15px;
+            border: 1px solid #ced4da; 
+            border-radius: 8px; 
+            font-size: 1em;
+            outline: none; 
+            transition: border-color 0.2s; 
+        }
+        #input-lokasi:focus {
+            border-color: #007bff; 
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); 
+        }
+        #tombol-cari {
+            padding: 12px 25px; 
+            border: none;
+            background-color: #007bff; 
+            color: white;
+            border-radius: 8px; 
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out, transform 0.1s ease; 
+        }
+        #tombol-cari:hover {
+            background-color: #0056b3; 
+            transform: translateY(-1px); 
+        }
+        #tombol-cari:active {
+            transform: translateY(0); 
+        }
+        .hasil-info p {
+            font-size: 1.05em; 
+            color: #495057; 
+            margin: 12px 0; 
+            display: flex; 
+        }
+        .hasil-info strong {
+            display: inline-block;
+            width: 120px; 
+            color: #343a40; 
+            flex-shrink: 0; 
+        }
+        .hasil-info span {
+            flex-grow: 1; 
+            font-weight: normal; 
+            color: #212529; 
+        }
+    </style>
     <div class="container">
         <h1 style="text-align: center;">INFO CUACA</h1>
         <hr>
